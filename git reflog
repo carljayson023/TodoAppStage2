@@ -1,0 +1,30 @@
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{0}: reset: moving to HEAD@{12}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to HEAD@{12}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{1}: reset: moving to HEAD@{5}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{2}: reset: moving to HEAD@{9}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m refs/heads/master@{1}: reset: moving to HEAD@{8}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{3}: reset: moving to HEAD@{8}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{2}: reset: moving to HEAD@{11}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{4}: reset: moving to HEAD@{11}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{5}: reset: moving to HEAD@{6}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{6}: reset: moving to HEAD@{0}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m refs/heads/master@{3}: reset: moving to HEAD@{4}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{7}: reset: moving to HEAD@{4}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{8}: reset: moving to HEAD@{2}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{4}: Branch: renamed refs/heads/master to refs/heads/master
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{9}: Branch: renamed refs/heads/master to refs/heads/master
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{5}: reset: moving to HEAD@{1}
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{11}: reset: moving to HEAD@{1}
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m refs/heads/master@{6}: reset: moving to origin/master
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{12}: reset: moving to origin/master
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{13}: reset: moving to HEAD
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{7}: Branch: renamed refs/heads/master to refs/heads/master
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{14}: Branch: renamed refs/heads/master to refs/heads/master
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m refs/heads/master@{8}: commit: all
+[33ma9c5f7e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{16}: commit: all
+[33m6055d5b[m HEAD@{17}: reset: moving to HEAD
+[33m6055d5b[m refs/heads/master@{9}: commit (amend): initial commit
+[33m6055d5b[m HEAD@{18}: commit (amend): initial commit
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m refs/remotes/origin/master@{0}: update by push
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m refs/heads/master@{10}: commit (initial): initial commit
+[33m1556062[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{19}: commit (initial): initial commit
