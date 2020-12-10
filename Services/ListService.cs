@@ -84,7 +84,7 @@ namespace ToDoApp_v1._2.Services
         {
             Message Msg;
             Msg.validate = "true";
-            if (data.DatalistId != 0 && ListContainer.Contains(data))
+            if (data.DatalistId != 0 )
             {
                 removeList.Add(data);
                 Msg.msgs = "List has been Successfully Remove!";

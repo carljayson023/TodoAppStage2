@@ -34,7 +34,7 @@ namespace ToDoApp_v1._2.CQRS
         }
         public void BrokerOnCommands(object sender, Command command)
         {
-            var cmd = command as TodoCommand;
+            var cmd = command as TodoInsertCommand;
             if (cmd != null && cmd.Target == this)
             {
                 broker.AllEvent.Add(new UpdateListEvent(this, oldData, cmd.newlistData));

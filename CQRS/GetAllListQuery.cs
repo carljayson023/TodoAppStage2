@@ -12,6 +12,7 @@ namespace ToDoApp_v1._2.CQRS
         public EventHandler Target;
         private readonly IContainer container;
         private readonly UnitOfWork unitofWrok;
+
         public GetAllListQuery()
         {
             container = App.Configure();

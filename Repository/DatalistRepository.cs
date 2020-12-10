@@ -94,7 +94,7 @@ namespace ToDoApp_v1._2.Repository
             return "";
         }
 
-        public string Delete(int id) // -------------------> delete datalist
+        public void Delete(int id) // -------------------> delete datalist
         {
             //string[] datas = data.Split('&');
             //var id = datas[0];
@@ -114,7 +114,7 @@ namespace ToDoApp_v1._2.Repository
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             connect.Close();
-            return "Successfuly Deleted! From DB SQLITE Query";
+            //return "Successfuly Deleted! From DB SQLITE Query";
             //throw new NotImplementedException();
         }
 

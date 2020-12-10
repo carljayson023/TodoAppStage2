@@ -162,7 +162,7 @@ namespace ToDoApp_v1._2
             //ListController _listController = new ListController();
             //MessageBox.Show( _listController.DeleteList_Class(ListToDelete));
             var unitofWork = container.Resolve<UnitOfWork>();
-            var result = unitofWork.catchResult(unitofWork.ListServices.RegisterNewList(ListToDelete));
+            var result = unitofWork.catchResult(unitofWork.ListServices.RemoveList(ListToDelete));
             MessageBox.Show(result);
 
             GetList();

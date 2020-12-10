@@ -60,7 +60,7 @@ namespace ToDoApp_v1._2
             builder.RegisterType<ItemService>().As<IItemService>();
             builder.RegisterType<ListController>().As<IListController>();
             builder.RegisterType<GetAllListQuery>().AsSelf();
-            builder.RegisterType<GetAllListHandler>().AsSelf();
+            //builder.RegisterType<GetAllListHandler>().AsSelf();
 
 
             //builder.RegisterType<ConnectDB>().As<IConnectDB>();

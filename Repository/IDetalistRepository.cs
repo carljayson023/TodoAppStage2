@@ -13,6 +13,6 @@ namespace ToDoApp_v1._2.Repository
         string Update(Datalist data);
         string Find(Datalist data);
         string Find(Itemlist data);
-        string Delete(int id);
+        void Delete(int id);
     }
 }

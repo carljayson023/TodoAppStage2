@@ -8,13 +8,13 @@ using ToDoApp_v1._2.Services;
 namespace ToDoApp_v1._2.CQRS
 {
     //public event EventHandler
-    public class TodoCommand : Command
+    public class TodoInsertCommand : Command
     {
        
         public EventHandler Target;
         public Datalist newlistData;
 
-        public TodoCommand(EventHandler target, Datalist data)
+        public TodoInsertCommand(EventHandler target, Datalist data)
         {
             Target = target;
             newlistData = data;
