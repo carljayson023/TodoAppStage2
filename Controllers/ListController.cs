@@ -1,10 +1,13 @@
 ﻿
+using Autofac;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using ToDoApp_v1._2.CQRS;
 using ToDoApp_v1._2.Model;
 //using ToDoApp_v1._2.Repository;
 
@@ -42,6 +45,16 @@ namespace ToDoApp_v1._2.Controllers
             {
                 return "Failed To Delete.!";
             }
+        }
+        public async Task<Datalist> GetAllList()
+        {
+            var container = App.Configure();
+            var query = container.Resolve<GetAllListQuery>();
+            var result = await GetAllList();
+
+            //var query = new GetAllListQuery();
+
+            return result;
         }
     }
 }

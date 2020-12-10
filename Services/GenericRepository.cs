@@ -17,7 +17,7 @@ namespace ToDoApp_v1._2.Services
         //internal DbSet<T> dbSet;
         private readonly IConnectDB context;
         private SQLiteConnection connect;
-
+        
         public GenericRepository(IConnectDB _context)
         {
             context = _context;

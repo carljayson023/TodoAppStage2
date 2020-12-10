@@ -50,6 +50,7 @@ namespace ToDoApp_v1._2
             //var container = App.Configure();
             //var _connectDb = container.Resolve<IDetalistRepository>();
             var unitofWork = container.Resolve<UnitOfWork>();
+            
             //MessageBox.Show(_ListId.ToString());
             if (ListDescription.Text.Trim() != "" && ListName.Text.Trim() != "")
             {

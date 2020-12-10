@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using ToDoApp_v1._2.Controllers;
+using ToDoApp_v1._2.CQRS;
 using ToDoApp_v1._2.Database;
 using ToDoApp_v1._2.Model;
 using ToDoApp_v1._2.Repository;
@@ -57,6 +58,10 @@ namespace ToDoApp_v1._2
             builder.RegisterType<UnitOfWork>().AsSelf();
             builder.RegisterType<ListService>().As<IListService>();
             builder.RegisterType<ItemService>().As<IItemService>();
+            builder.RegisterType<ListController>().As<IListController>();
+            builder.RegisterType<GetAllListQuery>().AsSelf();
+            builder.RegisterType<GetAllListHandler>().AsSelf();
+
 
             //builder.RegisterType<ConnectDB>().As<IConnectDB>();
 
