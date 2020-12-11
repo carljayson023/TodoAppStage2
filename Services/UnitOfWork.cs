@@ -7,11 +7,11 @@ using ToDoApp_v1._2.Repository;
 
 namespace ToDoApp_v1._2.Services
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
- 
-        private IListService listServices;
-        private IItemService itemServices;
+
+        private readonly IListService listServices;
+        private readonly IItemService itemServices;
         public UnitOfWork(IListService _listServices, IItemService _itemServices)//IItemService _itemService, IListService _listService)
         {
             itemServices = _itemServices;
@@ -25,8 +25,6 @@ namespace ToDoApp_v1._2.Services
 
             return actionResult[0];
         }
-
-        
         public IListService ListServices // -------> Singleton
         {
             get
@@ -39,7 +37,7 @@ namespace ToDoApp_v1._2.Services
             }
         }
 
-        
+
         public IItemService ItemServices // -------> Singleton
         {
             get
@@ -51,8 +49,8 @@ namespace ToDoApp_v1._2.Services
                 return itemServices;
             }
         }
-       
-        
+
+
     }
 }
 //https://www.youtube.com/watch?v=CRatpHRVZ3c

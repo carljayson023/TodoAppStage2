@@ -29,9 +29,9 @@ namespace ToDoApp_v1._2
         public string _ListDescription { get; set; }
 
         Datalist Newlist;
-        UnitOfWork unitofWork;
+        private readonly IUnitOfWork unitofWork;
        
-        public CreateListForm(UnitOfWork _unitofWork)
+        public CreateListForm(IUnitOfWork _unitofWork)
         {
             unitofWork = _unitofWork;
             //container = App.Configure();

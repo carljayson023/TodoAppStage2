@@ -29,18 +29,11 @@ namespace ToDoApp_v1._2
         public string _ItemStatuz { get; set; }
         public int _ItemDataListId { get; set; }
 
-        //private readonly DataDbContext _context = new DataDbContext();
 
-        //Information info;
-        //ItemController _itemController = new ItemController();
-
-        //IConnectDB _connectDb;
-        //private readonly App app = new App();
-
-        UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         //private readonly IContainer container;
     
-        public CreateItemForm(UnitOfWork _unitOfWork/*IConnectDB condb*/)
+        public CreateItemForm(IUnitOfWork _unitOfWork/*IConnectDB condb*/)
         {
             unitOfWork = _unitOfWork;
             //container = App.Configure();

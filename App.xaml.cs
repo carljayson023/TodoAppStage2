@@ -56,7 +56,7 @@ namespace ToDoApp_v1._2
             builder.RegisterType<CreateItemForm>().AsSelf();
             builder.RegisterType<CreateListForm>().AsSelf();
             builder.RegisterType<DataDbContext>().AsSelf();
-            builder.RegisterType<UnitOfWork>().AsSelf();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             //builder.RegisterType<SQLiteConnection>().AsSelf();
             builder.RegisterType<ListService>().As<IListService>();
             builder.RegisterType<ItemService>().As<IItemService>();

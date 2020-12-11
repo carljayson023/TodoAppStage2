@@ -32,11 +32,11 @@ namespace ToDoApp_v1._2
         
         DataDbContext _context;
         private Autofac.IContainer container;
-        IDatalistRepository _listDbContext;
-        IItemRepository _itemDbContext;
-        UnitOfWork unitofWork;
+        private readonly IDatalistRepository _listDbContext;
+        private readonly IItemRepository _itemDbContext;
+        private readonly IUnitOfWork unitofWork;
 
-        public MainWindow(DataDbContext context, IDatalistRepository listDbContext, IItemRepository itemDbContext, UnitOfWork _unitofWork)
+        public MainWindow(DataDbContext context, IDatalistRepository listDbContext, IItemRepository itemDbContext, IUnitOfWork _unitofWork)
         {
             unitofWork = _unitofWork;
             _listDbContext = listDbContext;
