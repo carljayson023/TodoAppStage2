@@ -32,9 +32,15 @@ namespace ToDoApp_v1._2
         
         DataDbContext _context;
         private Autofac.IContainer container;
+        IDatalistRepository _listDbContext;
+        IItemRepository _itemDbContext;
+        UnitOfWork unitofWork;
 
-        public MainWindow(DataDbContext context)
+        public MainWindow(DataDbContext context, IDatalistRepository listDbContext, IItemRepository itemDbContext, UnitOfWork _unitofWork)
         {
+            unitofWork = _unitofWork;
+            _listDbContext = listDbContext;
+            _itemDbContext = itemDbContext;
             _context = context;
             container = App.Configure();
             InitializeComponent();
@@ -47,8 +53,8 @@ namespace ToDoApp_v1._2
         {
          
             //var container = App.Configure();
-            var _listDbContext = container.Resolve<IDetalistRepository>();
-            var _itemDbContext = container.Resolve<IItemRepository>();
+            //var _listDbContext = container.Resolve<IDetalistRepository>();
+            //var _itemDbContext = container.Resolve<IItemRepository>();
 
             listDataGrid.ItemsSource = _listDbContext.GetAllDatalist();
             
@@ -75,8 +81,14 @@ namespace ToDoApp_v1._2
         public void OpenListform(object s, RoutedEventArgs e) // open New windows to add new List
         {
             
-            CreateListForm win2 = new CreateListForm();
-            win2.ShowDialog();
+            //CreateListForm win2 = new CreateListForm();
+            //win2.ShowDialog();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var winList = scope.Resolve<CreateListForm>();
+                winList.ShowDialog();
+            }
             GetList();
             
         }
@@ -161,7 +173,7 @@ namespace ToDoApp_v1._2
 
             //ListController _listController = new ListController();
             //MessageBox.Show( _listController.DeleteList_Class(ListToDelete));
-            var unitofWork = container.Resolve<UnitOfWork>();
+            //var unitofWork = container.Resolve<UnitOfWork>();
             var result = unitofWork.catchResult(unitofWork.ListServices.RemoveList(ListToDelete));
             MessageBox.Show(result);
 
@@ -175,7 +187,7 @@ namespace ToDoApp_v1._2
             //ItemController _itemController = new ItemController();
             //MessageBox.Show( _itemController.DeleteItem_Class(ItemToDelete));
 
-            var unitofWork = container.Resolve<UnitOfWork>();
+            //var unitofWork = container.Resolve<UnitOfWork>();
             var result = unitofWork.catchResult( unitofWork.ItemServices.RemoveItem(ItemToDelete));
             MessageBox.Show(result);
 

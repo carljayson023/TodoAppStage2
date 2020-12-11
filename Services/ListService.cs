@@ -8,15 +8,15 @@ namespace ToDoApp_v1._2.Services
 {
     public class ListService : IListService
     {
-        private DatalistRepository listRepository;
+        private IDatalistRepository listRepository;
         private readonly List<Datalist> newList = new List<Datalist>();
         private readonly List<Datalist> updateList = new List<Datalist>();
         private readonly List<Datalist> removeList = new List<Datalist>();
         private readonly List<Datalist> ListContainer = new List<Datalist>();
         private List<string> result = new List<string>();
-        public ListService()
+        public ListService(IDatalistRepository _listRepository)
         {
-            listRepository = new DatalistRepository();
+            listRepository = _listRepository;
         }
         struct Message
         {
@@ -32,7 +32,7 @@ namespace ToDoApp_v1._2.Services
         public IEnumerable<Datalist> LoadList() // ------> Load all List to Container
         {
 
-            listRepository = new DatalistRepository();
+            //listRepository = new DatalistRepository();
             ListContainer.AddRange(listRepository.GetAllDatalist());
 
             return ListContainer;

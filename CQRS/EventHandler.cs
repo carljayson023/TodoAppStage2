@@ -14,7 +14,7 @@ namespace ToDoApp_v1._2.CQRS
         //public void CommandHandler();
         //public void QueryHandler();
         private readonly IContainer container;
-        private readonly IDetalistRepository listRepository;
+        private readonly IDatalistRepository listRepository;
         EventBroker broker;
         public Datalist oldData;
         
@@ -24,7 +24,7 @@ namespace ToDoApp_v1._2.CQRS
             broker.Queries += BrokerOnQueries;
             broker.Commands += BrokerOnCommands;
             container = App.Configure();
-            listRepository = container.Resolve<IDetalistRepository>();
+            listRepository = container.Resolve<IDatalistRepository>();
         }
         public void BrokerOnQueries(object sender, Query query)
         {

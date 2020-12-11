@@ -9,12 +9,13 @@ namespace ToDoApp_v1._2.Services
 {
     public class UnitOfWork
     {
-        //public IItemService itemService;
-        //public IListService listService;
-        public UnitOfWork()//IItemService _itemService, IListService _listService)
+ 
+        private IListService listServices;
+        private IItemService itemServices;
+        public UnitOfWork(IListService _listServices, IItemService _itemServices)//IItemService _itemService, IListService _listService)
         {
-            //itemService = _itemService;
-            //listService = _listService;
+            itemServices = _itemServices;
+            listServices = _listServices;
 
         }
         public string catchResult(List<string> actionResult) // ----> CatchResult Message
@@ -25,28 +26,28 @@ namespace ToDoApp_v1._2.Services
             return actionResult[0];
         }
 
-        private ListService listServices;
-        public ListService ListServices // -------> Singleton
+        
+        public IListService ListServices // -------> Singleton
         {
             get
             {
-                if (this.listServices == null)
-                {
-                    this.listServices = new ListService();
-                }
+                //if (this.listServices == null)
+                //{
+                //    this.listServices = listServices;
+                //}
                 return listServices;
             }
         }
 
-        private ItemService itemServices;
-        public ItemService ItemServices // -------> Singleton
+        
+        public IItemService ItemServices // -------> Singleton
         {
             get
             {
-                if (this.itemServices == null)
-                {
-                    this.itemServices = new ItemService();
-                }
+                //if (this.itemServices == null)
+                //{
+                //    this.itemServices = itemServices;
+                //}
                 return itemServices;
             }
         }

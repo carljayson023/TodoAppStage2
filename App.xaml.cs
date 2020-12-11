@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace ToDoApp_v1._2
 
             //builder.RegisterType<ItemController>().As<IItemController>();
             //builder.RegisterType<ListController>().As<IListController>();
-            builder.RegisterType<DatalistRepository>().As<IDetalistRepository>();
+            builder.RegisterType<DatalistRepository>().As<IDatalistRepository>();
             builder.RegisterType<ItemRepository>().As<IItemRepository>();
             builder.RegisterType<DataController>().As<IDataController>();
             builder.RegisterType<MainWindow>().AsSelf();
@@ -56,22 +57,32 @@ namespace ToDoApp_v1._2
             builder.RegisterType<CreateListForm>().AsSelf();
             builder.RegisterType<DataDbContext>().AsSelf();
             builder.RegisterType<UnitOfWork>().AsSelf();
+            //builder.RegisterType<SQLiteConnection>().AsSelf();
             builder.RegisterType<ListService>().As<IListService>();
             builder.RegisterType<ItemService>().As<IItemService>();
             builder.RegisterType<ListController>().As<IListController>();
             builder.RegisterType<GetAllListQuery>().AsSelf();
-            //builder.RegisterType<GetAllListHandler>().AsSelf();
-
+            builder.RegisterType<ConnectDB>().As<IConnectDB>();
+            //builder.RegisterType<MainWindow>().As<IDetalistRepository>();
+            //builder.RegisterType<MainWindow>().As<IItemRepository>();
 
             //builder.RegisterType<ConnectDB>().As<IConnectDB>();
 
-            builder.RegisterAssemblyTypes()
-                .Where(t => t.Namespace.Contains("Model"))
-                .AsSelf();
+            //builder.RegisterAssemblyTypes()
+            //    .Where(t => t.Namespace.Contains("Model"))
+            //    .AsSelf();
 
-            builder.RegisterAssemblyTypes()
-                .Where(t => t.Namespace.Contains("Repository"))
-                .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
+            //builder.RegisterAssemblyTypes()
+            //    .Where(t => t.Namespace.Contains("Repository"))
+            //    .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
+
+
+            //builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(this))).Where(p => p.Name.StartsWith("Repository")).SingleInstance();
+
+           // builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+           //.Where(t => t.Name.Contains("Repository"))
+           //    .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
+
 
             return builder.Build();
 

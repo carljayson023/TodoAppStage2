@@ -5,7 +5,7 @@ using ToDoApp_v1._2.Model;
 
 namespace ToDoApp_v1._2.Repository
 {
-    public interface IDetalistRepository
+    public interface IDatalistRepository
     {
         
         IEnumerable<Datalist> GetAllDatalist();

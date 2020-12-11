@@ -36,12 +36,14 @@ namespace ToDoApp_v1._2
 
         //IConnectDB _connectDb;
         //private readonly App app = new App();
-        private readonly IContainer container;
+
+        UnitOfWork unitOfWork;
+        //private readonly IContainer container;
     
-        public CreateItemForm(/*IConnectDB condb*/)
+        public CreateItemForm(UnitOfWork _unitOfWork/*IConnectDB condb*/)
         {
-         
-            container = App.Configure();
+            unitOfWork = _unitOfWork;
+            //container = App.Configure();
             
             InitializeComponent();
         }
@@ -54,7 +56,7 @@ namespace ToDoApp_v1._2
         {
             //var container = App.Configure();
             
-            var unitOfWork = container.Resolve<UnitOfWork>();
+            //var unitOfWork = container.Resolve<UnitOfWork>();
 
             string _ItemName = ItemName.Text;
             string _ItemDetailed = ItemDetailed.Text;
@@ -75,12 +77,6 @@ namespace ToDoApp_v1._2
                     var result = unitOfWork.catchResult(unitOfWork.ItemServices.UpdateItem(ItemToUpdate));
                     MessageBox.Show(result);
 
-                    //MessageBox.Show(_itemController.UpdateItem_Class(ItemToUpdate)); 
-
-                    //MessageBox.Show(_connectDb.Update(ItemToUpdate));
-                    //var result = unitOfWork.catchResult(unitOfWork.UpdateItem(ItemToUpdate));
-                    //if (result[1] == "true") { unitOfWork.Save(); }
-                    //MessageBox.Show(result[0]);
                 }
                 else
                 {
@@ -92,17 +88,6 @@ namespace ToDoApp_v1._2
                     };
                     var result = unitOfWork.catchResult(unitOfWork.ItemServices.RegisterNewItem(addingItem));
                     MessageBox.Show(result);
-                    //MessageBox.Show(_itemController.AddItem_Class(addingItem));
-                    //MessageBox.Show(addingItem.Name+ "-"+ addingItem.Detailed);
-                    //MessageBox.Show(_connectDb.Add(addingItem));
-                    //unitOfWork.RegisterNewItem(addingItem);
-                    //unitOfWork.Save();
-                    //MessageBox.Show("New Item Successfully Added");
-
-                    //var result = unitOfWork.catchResult(unitOfWork.RegisterNewItem(addingItem));
-                    //if (result[1] == "true") { unitOfWork.Save(); }
-                    //MessageBox.Show(result[0]);
-
                 }
                 this.Close();
             }

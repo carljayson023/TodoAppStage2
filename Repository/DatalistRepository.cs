@@ -7,14 +7,14 @@ using ToDoApp_v1._2.Model;
 
 namespace ToDoApp_v1._2.Repository
 {
-    public class DatalistRepository : IDetalistRepository
+    public class DatalistRepository : IDatalistRepository
     {
-        private readonly ConnectDB context;
+        private readonly IConnectDB context;
         private SQLiteConnection connect;
 
-        public DatalistRepository()
+        public DatalistRepository(IConnectDB _context)
         {
-            context = new ConnectDB();
+            context = _context;
             connect = new SQLiteConnection();
         }
 
@@ -44,12 +44,7 @@ namespace ToDoApp_v1._2.Repository
             return listFile;
             //throw new NotImplementedException();
         }
-        //public Datalist GetDatalist(int Id) // Find all Id or get by id
-        //{
-        //    return context.Datalists.Find(Id);
-             
-        //    //throw new NotImplementedException();
-        //}
+     
 
         public string Add(Datalist data) // Add to Datalist table
         {

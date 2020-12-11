@@ -8,12 +8,16 @@ namespace ToDoApp_v1._2.Services
 {
     public class ItemService : IItemService
     {
-        private ItemRepository itemRepository;
+        private IItemRepository itemRepository;
         private readonly List<Itemlist> newItem = new List<Itemlist>();
         private readonly List<Itemlist> updateItem = new List<Itemlist>();
         private readonly List<Itemlist> removeItem = new List<Itemlist>();
         private readonly List<Itemlist> ItemContainer = new List<Itemlist>();
         private List<string> result = new List<string>();
+        public ItemService(IItemRepository _itemRepository)
+        {
+            itemRepository = _itemRepository;
+        }
         struct Message
         {
             public string msgs;
@@ -22,7 +26,7 @@ namespace ToDoApp_v1._2.Services
         public IEnumerable<Itemlist> LoadItem(int Id) // ------> Load all Item to Container
         {
 
-            itemRepository = new ItemRepository();
+            //itemRepository = new ItemRepository();
             ItemContainer.AddRange(itemRepository.GetAll(Id));
 
             return ItemContainer;

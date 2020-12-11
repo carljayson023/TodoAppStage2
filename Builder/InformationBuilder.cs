@@ -15,12 +15,17 @@ namespace ToDoApp_v1._2.Builder
         //private string _Status;
 
         private DatalistRepository listRepository;
-        private ItemRepository itemRepository;
+        private IItemRepository itemRepository;
         private ClassFactory classFactory;
+
+        public InformationBuilder(IItemRepository _itemRepository)
+        {
+            itemRepository = _itemRepository;
+        }
         public InformationBuilder GetItems(int id)
         {
 
-            itemRepository = new ItemRepository();
+            //itemRepository = new ItemRepository();
             itemRepository.GetAll(id);
             return this;
         }

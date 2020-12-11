@@ -28,18 +28,15 @@ namespace ToDoApp_v1._2
         public string _ListName { get; set; }
         public string _ListDescription { get; set; }
 
-        //private readonly DataDbContext _context = new DataDbContext();
-        //private readonly IConnectDB _connectDb;//= new ConnectDB();
-        private readonly Autofac.IContainer container;
-        Datalist Newlist = new Datalist();
-        
-        //----->> Class And Object
-        //ListController _listController = new ListController(); // Call and Set Controller for ADD UPDATE DELETE 
-        public CreateListForm()
+        Datalist Newlist;
+        UnitOfWork unitofWork;
+       
+        public CreateListForm(UnitOfWork _unitofWork)
         {
-            container = App.Configure();
+            unitofWork = _unitofWork;
+            //container = App.Configure();
             InitializeComponent();
-            NewListGrid.DataContext = Newlist;
+            NewListGrid.DataContext = Newlist = new Datalist();
         }
         private void Cancel(object s, RoutedEventArgs e)
         {
@@ -47,11 +44,7 @@ namespace ToDoApp_v1._2
         }
         private void AddList(object s, RoutedEventArgs e)
         {
-            //var container = App.Configure();
-            //var _connectDb = container.Resolve<IDetalistRepository>();
-            var unitofWork = container.Resolve<UnitOfWork>();
-            
-            //MessageBox.Show(_ListId.ToString());
+         
             if (ListDescription.Text.Trim() != "" && ListName.Text.Trim() != "")
             {
                 if (_ListId != 0) 
@@ -62,35 +55,15 @@ namespace ToDoApp_v1._2
                         Name = ListName.Text,
                         Description = ListDescription.Text
                     };
-                    //_listController._GetAllList();
-                    //MessageBox.Show("Data has Successfuly Updated");
-                    //MessageBox.Show(_listController.UpdateList_Class(updateDataList)); // Update Data by Manual
-                    //MessageBox.Show(_connectDb.Update(updateDataList));
-                    //MessageBox.Show(unitofWork.ListRepository.Update(updateDataList));
-
-
-                    //var result = unitofWork.catchResult(unitofWork.UpdateList(updateDataList));
-                    //if (result[1] == "true")
-                    //{ unitofWork.Save(); }
-
-                    //MessageBox.Show(result[0]);
-
+               
                     var result = unitofWork.catchResult(unitofWork.ListServices.UpdateList(updateDataList));
                     MessageBox.Show(result);
                 }
                 else
                 {
-                    //MessageBox.Show(_listController.GetAllList().ToString());
-                    //MessageBox.Show(_listController.AddList_Class(Newlist)); // Add Data by Binding
-                    //MessageBox.Show(_connectDb.Add(Newlist));
-                    //MessageBox.Show(unitofWork.ListRepository.Add(Newlist));
                     var result = unitofWork.catchResult( unitofWork.ListServices.RegisterNewList(Newlist));
                     MessageBox.Show(result);
-                    //ListService service = new ListService();
-                    //var result = unitofWork.catchResult(unitofWork.RegisterNewList(Newlist));
-                    //if (result[1] == "true")
-                    //{  service.Save(); }
-                    //MessageBox.Show(result[0]);
+            
                 }
                 this.Close();
             }

@@ -9,11 +9,12 @@ namespace ToDoApp_v1._2.Repository
 {
     public class ItemRepository : IItemRepository
     {
-        private readonly ConnectDB context;
-        private SQLiteConnection connect = new SQLiteConnection();
-        public ItemRepository()
+        private readonly IConnectDB context;
+        private SQLiteConnection connect;
+        public ItemRepository(IConnectDB _context)
         {
-            context = new ConnectDB();
+            context = _context;
+            connect = new SQLiteConnection();
         }
         public string Add(Itemlist data) //-------------------------> Insert Item
         {
@@ -73,9 +74,6 @@ namespace ToDoApp_v1._2.Repository
             return listFile;
             //throw new NotImplementedException();
         }
-
-       
-
         public string Update(Itemlist data) //------------------------------>> Update
         {
             int id = data.ItemlistId;

@@ -11,15 +11,16 @@ namespace ToDoApp_v1._2.Builder
     {
         public CallBuilderSample()
         {
-            var id = 1;
+            //var id = 1;
 
-            var Info = new InformationBuilder()
-                .GetItems(id)
-                .CountAllDoneItems(id)
-                .CountAllPendingItems(id)
-                .Build();
+            //var Info = new InformationBuilder()
+            //    .GetItems(id)
+            //    .CountAllDoneItems(id)
+            //    .CountAllPendingItems(id)
+            //    .Build();
 
-            Console.WriteLine(Info);
+            //Console.WriteLine(Info);
+
             //var container = App.Configure();
             //var unitOfWork = container.Resolve<UnitOfWork>();
             //var addlist = new List<Datalist>();
